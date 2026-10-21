@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f7f5" id="meta-theme-color">
+  <meta name="description" content="Create an application-ready resume, tailor it to a role, and organize your job search in one private workspace.">
+  <title>Pauser — Resume & Job Application Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Pauser home"><span class="brand-mark"
+          aria-hidden="true">||</span><span>Pauser<span class="brand-period">.</span></span></a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">▦</span> My resumes</button>
+        <button class="nav-item" data-view="builder"><span class="nav-icon">✳</span> Resume builder</button>
+        <button class="nav-item" data-view="tracker"><span class="nav-icon">↗</span> Job applications</button>
+        <button class="nav-item" data-view="templates"><span class="nav-icon">▤</span> Templates</button>
+        <button class="nav-item" data-view="ai"><span class="nav-icon pauser-icon" aria-hidden="true">||</span> AI
+          assistant</button>
+      </nav>
+      <div class="sidebar-tip">
+        <div class="tip-icon">✦</div>
+        <strong>Ready for your next application?</strong>
+        <p>Build your resume, tailor it for the role, then keep your progress in one place.</p>
+        <button class="text-button" data-view="tracker">Open applications <span>→</span></button>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="avatar" aria-hidden="true">✦</div>
+        <div><strong>Private workspace</strong><span>Saved on this device</span></div>
+        <button class="sidebar-theme-btn" id="sidebar-theme-toggle" aria-label="Toggle theme"
+          title="Toggle Dark/Light Mode">🌙</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark" aria-hidden="true">||</span> Pauser<span
+            class="brand-period">.</span></div>
+        <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><strong
+            id="breadcrumb-current">My resumes</strong></div>
+        <div class="top-actions">
+          <button class="topbar-action-btn quick-download-btn" id="quick-download-pdf"
+            title="Download your resume as a PDF"><span class="btn-icon">↓</span> Download PDF</button>
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark/light theme" title="Switch Theme">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text">Dark</span>
+          </button>
+          <span class="save-indicator"><i></i><span id="save-status">All changes saved</span></span>
+          <button class="help-button" aria-label="Help">?</button>
+        </div>
+      </header>
+      <section id="dashboard-view" class="page-view"></section>
+      <section id="builder-view" class="page-view hidden"></section>
+      <section id="tracker-view" class="page-view hidden"></section>
+      <section id="templates-view" class="page-view hidden"></section>
+      <section id="ai-view" class="page-view hidden"></section>
+    </main>
+  </div>
+
+  <nav class="mobile-bottom-nav" aria-label="Mobile bottom navigation">
+    <button class="mob-nav-item active" data-view="dashboard"><span
+        class="mob-icon">▦</span><span>Resumes</span></button>
+    <button class="mob-nav-item" data-view="builder"><span class="mob-icon">✳</span><span>Builder</span></button>
+    <button class="mob-nav-item" data-view="tracker"><span class="mob-icon">↗</span><span>Applications</span></button>
+    <button class="mob-nav-item" data-view="templates"><span class="mob-icon">▤</span><span>Templates</span></button>
+    <button class="mob-nav-item" data-view="ai"><span class="mob-icon">||</span><span>AI</span></button>
+  </nav>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+
+</html>
